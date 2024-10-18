@@ -1,0 +1,38 @@
+/**
+  * Сервис CRUD операций с клиентами
+ */
+syntax = "proto3";
+
+package clients_v1.service;
+
+option go_package = "github.com/DoktorGhost/external-api/src/go/pkg/grpc/clients_v1";
+
+/**
+  * Сервис CRUD операций с клиентами
+ */
+service ClientsService {
+  rpc Register(RegisterRequest) returns (RegisterResponse) {}
+}
+
+/**
+  * Запрос на регистрацию
+ */
+message RegisterRequest {
+  /** Логин */
+  string username = 1;
+  /** Пароль */
+  string password = 2;
+  /** Имя */
+  string name = 3;
+  /** Фамилия */
+  string surname = 4;
+  /** Отчество */
+  string patronymic = 5;
+}
+
+/**
+  * Ответ на регистрацию
+ */
+message RegisterResponse {
+  int64 id = 1;
+}
