@@ -6,6 +6,8 @@ install-go-deps:
 	GOBIN=$(LOCAL_BIN) go install github.com/pseudomuto/protoc-gen-doc/cmd/protoc-gen-doc@latest
 	GOBIN=$(LOCAL_BIN) go install github.com/envoyproxy/protoc-gen-validate@v0.10.1
 
+proto: generate-go-discounts_service_v1-api
+
 generate-go-discounts_service_v1-api:
 	mkdir -p src/go/pkg/grpc/clients
 	GOBIN=$(LOCAL_BIN) protoc \
