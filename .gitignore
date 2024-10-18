@@ -23,3 +23,12 @@ go.work.sum
 
 # env file
 .env
+
+/.idea
+/.vscode
+.DS_Store
+/build/output/
+/storage/
+/coverage.out
+/bin
+/vendor.protogen
