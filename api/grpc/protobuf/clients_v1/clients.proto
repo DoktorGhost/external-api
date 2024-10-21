@@ -12,6 +12,7 @@ option go_package = "github.com/DoktorGhost/external-api/src/go/pkg/grpc/clients
  */
 service ClientsService {
   rpc Register(RegisterRequest) returns (RegisterResponse) {}
+  rpc Login(LoginRequest) returns (LoginResponse) {}
 }
 
 /**
@@ -35,4 +36,28 @@ message RegisterRequest {
  */
 message RegisterResponse {
   int64 id = 1;
+}
+
+/**
+ * Запрос на аутентификацию
+ */
+message LoginRequest {
+  /** Логин */
+  string username = 1;
+  /** Пароль */
+  string password = 2;
+}
+
+
+/**
+ * Ответ на аутентификацию
+ */
+message LoginResponse {
+  int64 id = 1;
+  /** Логин */
+  string username = 2;
+  /** Пароль */
+  string password = 3;
+  /** ФИО */
+  string fullname = 4;
 }
