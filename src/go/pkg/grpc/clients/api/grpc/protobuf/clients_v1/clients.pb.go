@@ -348,7 +348,7 @@ func file_api_grpc_protobuf_clients_v1_clients_proto_rawDescGZIP() []byte {
 }
 
 var file_api_grpc_protobuf_clients_v1_clients_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
-var file_api_grpc_protobuf_clients_v1_clients_proto_goTypes = []any{
+var file_api_grpc_protobuf_clients_v1_clients_proto_goTypes = []interface{}{
 	(*RegisterRequest)(nil),  // 0: clients_v1.service.RegisterRequest
 	(*RegisterResponse)(nil), // 1: clients_v1.service.RegisterResponse
 	(*LoginRequest)(nil),     // 2: clients_v1.service.LoginRequest
