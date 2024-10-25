@@ -724,7 +724,7 @@ func file_books_proto_rawDescGZIP() []byte {
 }
 
 var file_books_proto_msgTypes = make([]protoimpl.MessageInfo, 11)
-var file_books_proto_goTypes = []any{
+var file_books_proto_goTypes = []interface{}{
 	(*AddBookRequest)(nil),   // 0: books_v1.service.AddBookRequest
 	(*AddAuthorRequest)(nil), // 1: books_v1.service.AddAuthorRequest
 	(*Response)(nil),         // 2: books_v1.service.Response
