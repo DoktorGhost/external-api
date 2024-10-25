@@ -1,0 +1,121 @@
+/**
+  * Сервис CRUD операций с клиентами
+ */
+syntax = "proto3";
+
+package books_v1.service;
+
+option go_package = "github.com/DoktorGhost/external-api/src/go/pkg/grpc/books_v1";
+
+/**
+  * Сервис CRUD операций с книгами
+ */
+service BooksService {
+  rpc AddBook(AddBookRequest) returns (Response) {}
+  rpc AddAuthor(AddAuthorRequest) returns (Response) {}
+  rpc GetAllBookWithAuthor(Empty) returns (BooksResponse) {}
+  rpc GetBookWithAuthor(AuthorID) returns (BookWithAuthor) {}
+  rpc GetAllAuthorWithBooks(Empty) returns (AuthorResponse) {}
+}
+
+/**
+  * Запрос на добавление книги
+ */
+message AddBookRequest {
+  /** Название */
+  string title = 2;
+  /** ID Автора */
+  int64 authorId = 3;
+
+}
+
+/**
+ * Запрос на добавление автора
+ */
+message AddAuthorRequest {
+  /** Имя */
+  string name = 1;
+  /** Фамилия */
+  string surname = 2;
+  /** Отчество */
+  string patronymic = 3;
+}
+
+/**
+  * Ответ на добавление книги или автора
+ */
+message Response {
+  int64 id = 1;
+}
+
+/**
+ *
+ */
+message AuthorID {
+  /** ID Автора */
+  int64 id = 1;
+}
+
+/**
+ * Структура автора
+ */
+message Author {
+  /** ID Автора */
+  int64 id = 1;
+  /** Полное имя автора */
+  string fullName = 2;
+}
+
+/**
+ * Структура книг с автором
+ */
+message BookWithAuthor {
+  /** ID Книги */
+  int64 id = 1;
+  /** Название книги */
+  string title = 2;
+  /** Автор книги */
+  Author author = 3;
+}
+
+/**
+ * Структура книг
+ */
+message Book {
+  /** ID Книги */
+  int64 id = 1;
+  /** Название книги */
+  string title = 2;
+  /** Автор книги */
+  int64 authorId = 3;
+}
+
+/**
+ * Ответ с книгами
+ */
+message BooksResponse {
+  /** Список книг */
+  repeated BookWithAuthor books = 1;
+}
+
+/**
+ * Структура автора с книгами
+ */
+message AuthorWithBooks {
+  /** ID автора */
+  int64 id = 1;
+  /** ФИО автора */
+  string fullName = 2;
+  /** Список книг автора */
+  repeated Book books = 3;
+}
+
+/**
+ * Список авторов с их книгами
+ */
+message AuthorResponse {
+  /** Список авторов */
+  repeated AuthorWithBooks authors = 1;
+}
+
+message Empty {}
