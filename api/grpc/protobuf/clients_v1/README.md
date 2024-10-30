@@ -4,8 +4,12 @@
 ## Table of Contents
 
 - [api/grpc/protobuf/clients_v1/clients.proto](#api_grpc_protobuf_clients_v1_clients-proto)
+    - [LoginRequest](#clients_v1-service-LoginRequest)
+    - [LoginResponse](#clients_v1-service-LoginResponse)
     - [RegisterRequest](#clients_v1-service-RegisterRequest)
     - [RegisterResponse](#clients_v1-service-RegisterResponse)
+    - [UserID](#clients_v1-service-UserID)
+    - [Username](#clients_v1-service-Username)
   
     - [ClientsService](#clients_v1-service-ClientsService)
   
@@ -18,6 +22,40 @@
 
 ## api/grpc/protobuf/clients_v1/clients.proto
 Сервис CRUD операций с клиентами
+
+
+<a name="clients_v1-service-LoginRequest"></a>
+
+### LoginRequest
+Запрос на аутентификацию
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| username | [string](#string) |  | Логин |
+| password | [string](#string) |  | Пароль |
+
+
+
+
+
+
+<a name="clients_v1-service-LoginResponse"></a>
+
+### LoginResponse
+Ответ на аутентификацию
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| id | [int64](#int64) |  |  |
+| username | [string](#string) |  | Логин |
+| password | [string](#string) |  | Пароль |
+| fullname | [string](#string) |  | ФИО |
+
+
+
+
 
 
 <a name="clients_v1-service-RegisterRequest"></a>
@@ -53,6 +91,36 @@
 
 
 
+
+<a name="clients_v1-service-UserID"></a>
+
+### UserID
+Запрос на получение пользователя по ID
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| id | [int64](#int64) |  | Логин |
+
+
+
+
+
+
+<a name="clients_v1-service-Username"></a>
+
+### Username
+Ответ на получение пользователя по ID
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| username | [string](#string) |  | Логин |
+
+
+
+
+
  
 
  
@@ -68,6 +136,8 @@
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
 | Register | [RegisterRequest](#clients_v1-service-RegisterRequest) | [RegisterResponse](#clients_v1-service-RegisterResponse) |  |
+| Login | [LoginRequest](#clients_v1-service-LoginRequest) | [LoginResponse](#clients_v1-service-LoginResponse) |  |
+| GetUserByID | [UserID](#clients_v1-service-UserID) | [Username](#clients_v1-service-Username) |  |
 
  
 
